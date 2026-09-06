@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My App</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 60px auto; padding: 0 20px; color: #222; }
+    h1 { color: #1F3864; }
+    button { padding: 10px 18px; font-size: 16px; cursor: pointer; }
+    #result { margin-top: 16px; padding: 12px; background: #f3f5f9; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h1>🚀 My App is running on AWS</h1>
+  <p>Deployed automatically with Docker + GitHub Actions.</p>
+  <button onclick="callApi()">Call the API</button>
+  <div id="result"></div>
+  <script>
+    async function callApi() {
+      const res = await fetch('/api/hello');
+      const data = await res.json();
+      document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
